@@ -2,6 +2,10 @@
   "name": "react-tic-tac-toe",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot --progress",
+    "build": "webpack"
+  },
   "dependencies": {
     "@types/react": "^15.0.21",
     "@types/react-dom": "^0.14.23",
