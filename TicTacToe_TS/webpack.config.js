@@ -20,7 +20,7 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: {
               modules: true,
               localIdentName: '[name]__[local]___[hash:base64:5]'

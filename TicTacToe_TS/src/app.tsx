@@ -4,8 +4,8 @@ import { Board } from "./Board";
 import { RestartBtn } from "./RestartBtn";
 import { GameStateBar } from "./GameStateBar";
 import { GameState } from "./constants";
-
 import * as styles from './style.css';
+import * as cx from 'classnames';
 
 class App extends React.Component<{}, {}> {
     render() {
@@ -15,8 +15,8 @@ class App extends React.Component<{}, {}> {
                     styles={styles} 
                 /> 
                 <div>
-                    <span className={styles.t1}> Player(X) </span>                
-                    <span className={styles.t2}> Computer(O) </span>
+                    <span className={cx(styles.description, {[styles.t1]: true})}> Player(X) </span>                
+                    <span className={cx(styles.description, styles.t2)}> Computer(O) </span>
                 </div>
                 <RestartBtn />     
                 <GameStateBar />           
