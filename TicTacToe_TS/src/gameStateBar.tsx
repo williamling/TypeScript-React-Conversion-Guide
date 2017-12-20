@@ -1,5 +1,6 @@
 import * as React from "react";
 import { GameState } from "./constants";
+import * as styles from './style.css';
 
 interface GameStateBarState {
     gameState: GameState;    
@@ -32,7 +33,7 @@ export class GameStateBar extends React.Component<{}, GameStateBarState> {
     
     render() {
         return (
-            <div className="gameStateBar"> {this.state.gameState} </div> 
+            <div className={styles.gameStateBar}> {this.state.gameState} </div> 
         )
     }
 }   

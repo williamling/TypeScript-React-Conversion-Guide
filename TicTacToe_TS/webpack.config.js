@@ -19,7 +19,13 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         use: [
           { loader: "style-loader" },
-          { loader: "css-loader" }
+          {
+            loader: 'typings-for-css-modules-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
         ]
       },
     ]

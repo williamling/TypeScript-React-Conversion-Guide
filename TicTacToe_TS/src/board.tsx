@@ -1,14 +1,19 @@
 import * as React from "react";
 import { CellValue, GameState, playerCell, aiCell } from "./constants"; 
+import * as styles from './style.css';
 
 interface BoardState {
     cells: CellValue[];
     gameState: GameState;
 }
 
-export class Board extends React.Component<{}, BoardState> {
+interface BordProps extends React.Props<any>{
+    styles: any;
+}
 
-    constructor(props: {}) {
+export class Board extends React.Component<BordProps, BoardState> {
+
+    constructor(props:BordProps) {
         super(props);        
         this.state = this.getInitState();
     } 
@@ -132,12 +137,17 @@ export class Board extends React.Component<{}, BoardState> {
     render() {
         var cells = this.state.cells.map((v, i) => {
             return (
-                <Cell key={i} pos={i} val={v} handleMove={() => this.handleNewPlayerMove(i)} />
+                <Cell
+                    key={i}
+                    pos={i} 
+                    val={v}
+                    handleMove={() => this.handleNewPlayerMove(i)}
+                />
             )           
         } );
         
         return ( 
-            <div className="board"> 
+            <div className={styles.board}> 
                 {cells}
             </div> 
         )
@@ -154,26 +164,28 @@ class Cell extends React.Component<CellProps, {}> {
 
     // position of cell to className
     private posToClassName(pos: number): string {
-        let className = "cell";
+        let className = styles.cell;
+        
         switch (Math.floor(pos / 3)) {
             case 0: 
-                className += " top";
+                className  += ' ' + styles.top;
                 break;
             case 2: 
-                className += " bottom";
+                className  += ' ' + styles.bottom;
                 break;
             default: break;             
         }
         switch (pos % 3) {    
             case 0: 
-                className += " left";
+                className  += ' ' + styles.left;
                 break;
             case 2: 
-                className += " right";
+                className  += ' ' + styles.right;
                 break;
             default: 
                 break;             
         }
+        
         return className;
     }
 
@@ -182,10 +194,7 @@ class Cell extends React.Component<CellProps, {}> {
     }
 
     render() {
-        let name = this.props.val;
-        if (this.props.val === "") {
-            name = "";
-        }
+        const name = this.props.val === 'X' ? styles.X : this.props.val === 'O' ? styles.O : '';
         return <div className={this.posToClassName(this.props.pos)} onClick={e => this.handleClick(e)}> 
             <div className={name}> {this.props.val} </div>
         </div>
