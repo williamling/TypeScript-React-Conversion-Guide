@@ -13,15 +13,18 @@ module.exports = {
       { test: /\.jsx?$/, use: { loader: 'babel-loader' } },
       {
         test: /\.css$/,
-        loader: 'style-loader'
-      }, {
-        test: /\.css$/,
-        loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]'
-        }
-      }
+        include: path.join(__dirname, 'src'),
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ]
+      },
     ]
   },
 
