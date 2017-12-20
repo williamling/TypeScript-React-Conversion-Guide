@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/app.jsx',
   output: {
@@ -8,11 +10,22 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.jsx?$/, use: { loader: 'babel-loader' } }
+      { test: /\.jsx?$/, use: { loader: 'babel-loader' } },
+      {
+        test: /\.css$/,
+        include: path.join(__dirname, 'src'),
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+      }
     ]
   },
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM",
+
+  devServer: {
+    hot: true,
+    host: '0.0.0.0',
+    port: '5009',
+    disableHostCheck: true,
   },
 }

@@ -4,6 +4,8 @@ import { Board } from "./board";
 import { RestartBtn } from "./restartBtn";
 import { GameStateBar } from "./gameStateBar";
 
+import './style.css';
+
 class App extends React.Component {
     render() {
         return (
