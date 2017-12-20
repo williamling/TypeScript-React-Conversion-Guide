@@ -1,5 +1,7 @@
 import React from "react";
-import { playerCell, aiCell } from "./constants"; 
+import { playerCell, aiCell } from "./constants";
+import cx from 'classnames';
+import style from './style.css';
 
 export class Board extends React.Component {
 
@@ -132,7 +134,7 @@ export class Board extends React.Component {
         } );
         
         return ( 
-            <div className="board"> 
+            <div className={style.board}> 
                 {cells}
             </div> 
         )
@@ -143,22 +145,22 @@ class Cell extends React.Component {
 
     // position of cell to className
     posToClassName(pos) {
-        let className = "cell";
+        let className = style.cell;
         switch (Math.floor(pos / 3)) {
             case 0: 
-                className += " top";
+                className = cx(className,style.top);
                 break;
             case 2: 
-                className += " bottom";
+                className = cx(className,style.bottom);
                 break;
             default: break;             
         }
         switch (pos % 3) {    
             case 0: 
-                className += " left";
+                className = cx(className,style.left);
                 break;
             case 2: 
-                className += " right";
+                className = cx(className,style.right);
                 break;
             default: 
                 break;             
@@ -176,7 +178,7 @@ class Cell extends React.Component {
             name = "";
         }
         return <div className={this.posToClassName(this.props.pos)} onClick={e => this.handleClick(e)}> 
-            <div className={name}> {this.props.val} </div>
+            <div className={style[name]}> {this.props.val} </div>
         </div>
     }
 }

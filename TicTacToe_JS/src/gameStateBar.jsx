@@ -1,4 +1,5 @@
 import React from "react";
+import style from './style.css';
 
 export class GameStateBar extends React.Component {
     
@@ -27,7 +28,7 @@ export class GameStateBar extends React.Component {
     
     render() {
         return (
-            <div className="gameStateBar"> {this.state.gameState} </div> 
+            <div className={style.gameStateBar}> {this.state.gameState} </div> 
         )
     }
 }   

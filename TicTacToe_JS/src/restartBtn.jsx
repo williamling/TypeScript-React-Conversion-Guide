@@ -1,4 +1,5 @@
 import React from "react";
+import style from './style.css';
 
 export class RestartBtn extends React.Component {
 
@@ -10,7 +11,7 @@ export class RestartBtn extends React.Component {
     }
     
     render() {
-        return <a href="#" className="restartBtn" onClick={e => this.handleClick(e)}>
+        return <a href="#" className={style.restartBtn} onClick={e => this.handleClick(e)}>
             Restart 
         </a>;
     }
