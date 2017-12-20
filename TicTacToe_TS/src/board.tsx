@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CellValue, GameState, playerCell, aiCell } from "./constants"; 
 import * as styles from './style.css';
+import * as cx from 'classnames';
 
 interface BoardState {
     cells: CellValue[];
@@ -70,7 +71,6 @@ export class Board extends React.Component<BordProps, BoardState> {
         if (result) {
             return result;
         }
-        
         // check draw - if all cells are filled
         if (this.findAllEmptyCells(cells).length === 0) {
             return "Draw";          
@@ -168,19 +168,19 @@ class Cell extends React.Component<CellProps, {}> {
         
         switch (Math.floor(pos / 3)) {
             case 0: 
-                className  += ' ' + styles.top;
+                className = cx(className, styles.top);
                 break;
             case 2: 
-                className  += ' ' + styles.bottom;
+                className = cx(className, styles.bottom);
                 break;
             default: break;             
         }
         switch (pos % 3) {    
             case 0: 
-                className  += ' ' + styles.left;
+                className = cx(className, styles.left);
                 break;
             case 2: 
-                className  += ' ' + styles.right;
+                className = cx(className, styles.right);
                 break;
             default: 
                 break;             
