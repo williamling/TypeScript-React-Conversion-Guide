@@ -1,19 +1,15 @@
-export interface IStyleCss {
-  'app': string;
-  'board': string;
-  'cell': string;
-  'top': string;
-  'bottom': string;
-  'left': string;
-  'right': string;
-  'X': string;
-  'appear': string;
-  'O': string;
-  'description': string;
-  't1': string;
-  't2': string;
-  'gameStateBar': string;
-  'restartBtn': string;
-}
-
-export const locals: IStyleCss;
+export const app: string;
+export const board: string;
+export const cell: string;
+export const top: string;
+export const bottom: string;
+export const left: string;
+export const right: string;
+export const X: string;
+export const appear: string;
+export const O: string;
+export const description: string;
+export const t1: string;
+export const t2: string;
+export const gameStateBar: string;
+export const restartBtn: string;
