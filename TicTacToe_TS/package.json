@@ -2,6 +2,10 @@
   "name": "react-tic-tac-toe",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot --progress",
+    "build": "webpack"
+  },
   "dependencies": {
     "@types/react": "^15.0.21",
     "@types/react-dom": "^0.14.23",
@@ -9,9 +13,13 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
-    "webpack": "^2.3.3",
-    "typescript": "^2.3.2",
     "awesome-typescript-loader": "^3.1.2",
-    "source-map-loader": "^0.2.1"
+    "css-loader": "^0.28.7",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.19.1",
+    "typed-css-modules": "^0.3.1",
+    "typescript": "^2.3.2",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "webpack": "^2.3.3"
   }
 }
