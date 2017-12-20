@@ -20,7 +20,7 @@ export class Board extends React.Component<BordProps, BoardState> {
     
     private getInitState(): BoardState { 
         let cells = Array.apply(null, Array(9)).map(() => "");
-        return {cells: cells, gameState: ""}
+        return {cells: cells, gameState: ''}
     }
 
     private resetState(): void {
