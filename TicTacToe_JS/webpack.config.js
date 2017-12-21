@@ -11,11 +11,6 @@ module.exports = {
       { test: /\.jsx?$/, use: { loader: 'babel-loader' } }
     ]
   },
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM",
-  },
-
   devServer: {
     hot: true,
     host: '0.0.0.0',
